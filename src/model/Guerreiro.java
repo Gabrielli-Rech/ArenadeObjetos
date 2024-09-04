@@ -1,5 +1,4 @@
 package model;
-
 public class Guerreiro extends Pessoa {
     private String armamento;
     public Guerreiro() {
@@ -19,5 +18,7 @@ public class Guerreiro extends Pessoa {
         return "Guerreiro [armamento=" + armamento + ", getArmamento()=" + getArmamento() + ", getNome()=" + getNome()
                 + ", getCabelo()=" + getCabelo() + ", getOlho()=" + getOlho() + ", getPele()=" + getPele() + "]";
     }
-    
+    public void atacar(){
+        this.dano(10);
+    }
 }

@@ -1,20 +1,26 @@
 package arenadeobjetos;
 
-import model.Guerreiro;
-import model.Pessoa;
+import java.util.Scanner;
 
 public class ArenaDeObjetos {
+    static Scanner ler = new Scanner(System.in);
+    public static int LerInt (){
+        Scanner ler = new Scanner(System.in);
+        int num = 99;
+        try {
+            num = ler.nextInt();
+        } catch (Exception e) {
+            System.out.print("Tente Novamente! \n");
+            LerInt();
+        }
+        return num;
+    }
     public static void main(String[] args) {
-        Pessoa vitima = new Pessoa(" Vitima 1", " Castanho", " Castanho claro", "Branca", true);
-        System.out.println("Vítima 1\n" + vitima.toString());
-        System.out.println("Vítima perdeu 25 pontos de vida");
-        int pontosAtuais = vitima.getPontosDeVida();
-        vitima.setPontosDeVida (pontosAtuais- 25);
-        System.out.println("Vitima \n" + vitima.toString());
-        vitima.dano(30);
-        System.out.println("Vítima perdeu 30 pontos de vida");
-        System.out.println("Vitima \n" + vitima.toString());
-        Guerreiro denis = new Guerreiro(" Denis", " Grey", " Castanho", " Branco", false, " Espada longa");
-        System.out.println("Guerreiro \n" + denis.toString());
+        String texto;
+        int num;
+        System.out.print("Digite seu nome: ");
+        texto = ler.nextLine();
+        System.out.print("Informe sua idade: ");
+        num = LerInt();
     }
 }
