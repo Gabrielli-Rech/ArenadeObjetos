@@ -1,5 +1,6 @@
 package arenadeobjetos;
 
+import model.Guerreiro;
 import model.Pessoa;
 
 public class ArenaDeObjetos {
@@ -13,5 +14,7 @@ public class ArenaDeObjetos {
         vitima.dano(30);
         System.out.println("Vítima perdeu 30 pontos de vida");
         System.out.println("Vitima \n" + vitima.toString());
+        Guerreiro denis = new Guerreiro(" Denis", " Grey", " Castanho", " Branco", false, " Espada longa");
+        System.out.println("Guerreiro \n" + denis.toString());
     }
 }
