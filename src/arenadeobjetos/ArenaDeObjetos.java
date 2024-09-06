@@ -16,8 +16,10 @@ public class ArenaDeObjetos {
     }
     public static void main(String[] args) {
         System.out.println( "< ARENA DE OBJETOS >");
+        do{
         menuP();
         subMenuP(opMP);
+        } while (opMP >= 0);
     }
     public static void menuP() {
         String menu;
@@ -26,7 +28,9 @@ public class ArenaDeObjetos {
                 + "2 - Listar Personagens \n"
                 + "3 - Batalha";
         System.out.println(menu);
+        System.out.print("Informe sua escolha: ");
         opMP = LerInt();
+        
     }
     public static void subMenuP(int omP) {
         String subMenu;
@@ -39,11 +43,11 @@ public class ArenaDeObjetos {
                 break;
             case 0 :
                 System.out.println("Arena de objeto encerrada pelo usuário");
+                break;
             default:
                 System.out.println("Opção invalida, tente novamente!");
                 menuP();
                 break;
         }
-        System.out.println("");
     }
 }
