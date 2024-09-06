@@ -10,5 +10,15 @@ public class Ladrao extends Pessoa {
     }
     public String getPlanoDeFuga (){
         return planoDefuga;
+          return "Da no pé";
+    }
+    public String roubar(){
+        return "Arrastão";
+    }
+    @Override
+    public String toString() {
+        return "Ladrao [planoDefuga=" + planoDefuga + ", getPlanoDeFuga()=" + getPlanoDeFuga() + ", getNome()="
+                + getNome() + ", fugir()=" + fugir() + ", roubar()=" + roubar() + ", getCabelo()=" + getCabelo()
+                + ", getOlho()=" + getOlho() + ", getPele()=" + getPele() + "]";
     }
 }
