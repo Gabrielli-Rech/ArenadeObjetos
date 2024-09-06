@@ -2,6 +2,7 @@ package arenadeobjetos;
 import java.util.Scanner;
 public class ArenaDeObjetos {
     static Scanner ler = new Scanner(System.in);
+    static int opMP;
     public static int LerInt() {
         Scanner ler = new Scanner(System.in);
         int num = 99;
@@ -14,6 +15,9 @@ public class ArenaDeObjetos {
         return num;
     }
     public static void main(String[] args) {
+        System.out.println( "< ARENA DE OBJETOS >");
+        menuP();
+        subMenuP(opMP);
     }
     public static void menuP() {
         String menu;
@@ -22,6 +26,7 @@ public class ArenaDeObjetos {
                 + "2 - Listar Personagens \n"
                 + "3 - Batalha";
         System.out.println(menu);
+        opMP = LerInt();
     }
     public static void subMenuP(int omP) {
         String subMenu;
@@ -32,8 +37,13 @@ public class ArenaDeObjetos {
                 break;
             case 3 :
                 break;
+            case 0 :
+                System.out.println("Arena de objeto encerrada pelo usuário");
             default:
+                System.out.println("Opção invalida, tente novamente!");
+                menuP();
                 break;
         }
+        System.out.println("");
     }
 }
