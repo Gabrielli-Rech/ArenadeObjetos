@@ -8,14 +8,12 @@ import model.Ladrao;
 import model.Pessoa;
 import servico.ServicosFactory;
 import servico.VitimasServicos;
-
 public class ArenaDeObjetos {
     static Scanner ler = new Scanner(System.in);
     static int opMP;
     static ArrayList<Guerreiro> guerreiros = new ArrayList<>();
     static ArrayList<Ladrao> ladraos = new ArrayList<>();
     static ArrayList<Pessoa> vitimas = new ArrayList<>();
-
     public static int lerInt() {
         Scanner ler = new Scanner(System.in);
         int num = 99;
@@ -27,7 +25,6 @@ public class ArenaDeObjetos {
         }
         return num;
     }
-
     public static void main(String[] args) {
         System.out.println("< ARENA DE OBJETOS >");
         do {
@@ -35,7 +32,6 @@ public class ArenaDeObjetos {
             subMenuP(opMP);
         } while (opMP != 0);
     }
-
     public static void menuP() {// menu principal
         String menu;
         menu = "0 - Sair\n"
@@ -46,7 +42,6 @@ public class ArenaDeObjetos {
         System.out.print("Informe sua escolha: ");
         opMP = lerInt();
     }// fim menuP
-
     public static void subMenuP(int omP) {
         System.out.println(" < SubMenu >");
         String subMenu;
@@ -91,7 +86,6 @@ public class ArenaDeObjetos {
                 break;
         }
     }// fim do switch
-
     private static void criarPersona(int opSP) {
         switch (opSP) {
             case 1:
