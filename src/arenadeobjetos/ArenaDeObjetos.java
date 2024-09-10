@@ -16,14 +16,14 @@ public class ArenaDeObjetos {
     static ArrayList<Ladrao> ladraos = new ArrayList<>();
     static ArrayList<Pessoa> vitimas = new ArrayList<>();
 
-    public static int LerInt() {
+    public static int lerInt() {
         Scanner ler = new Scanner(System.in);
         int num = 99;
-        try {
+        try {// o que pode dar erro
             num = ler.nextInt();
-        } catch (Exception e) {
-            System.out.print("Tente Novamente! \n");
-            LerInt();
+        } catch (Exception e) {// tratar o erro
+            System.out.print("Tente Novamente: ");
+            lerInt();
         }
         return num;
     }
@@ -36,7 +36,7 @@ public class ArenaDeObjetos {
         } while (opMP != 0);
     }
 
-    public static void menuP() {
+    public static void menuP() {// menu principal
         String menu;
         menu = "0 - Sair\n"
                 + "1 - Criar Personagens \n"
@@ -44,8 +44,8 @@ public class ArenaDeObjetos {
                 + "3 - Batalha";
         System.out.println(menu);
         System.out.print("Informe sua escolha: ");
-        opMP = LerInt();
-    }
+        opMP = lerInt();
+    }// fim menuP
 
     public static void subMenuP(int omP) {
         System.out.println(" < SubMenu >");
@@ -56,7 +56,7 @@ public class ArenaDeObjetos {
                         + "2 - Ladrão\n"
                         + "3 - Vitima\n"
                         + "Digite a opção: ");
-                int opMP = LerInt();
+                int opMP = lerInt();
                 criarPersona(opMP);
                 break;
             case 2:
@@ -90,7 +90,7 @@ public class ArenaDeObjetos {
                 menuP();
                 break;
         }
-    }
+    }// fim do switch
 
     private static void criarPersona(int opSP) {
         switch (opSP) {
@@ -109,7 +109,7 @@ public class ArenaDeObjetos {
                         + "1 - Feminino\n"
                         + "2 - Masculino\n"
                         + "Digite a opção desejada: ");
-                int sexoInt = LerInt();
+                int sexoInt = lerInt();
                 boolean sexo = false;
                 if (sexoInt == 2) {
                     sexo = true;
@@ -134,7 +134,7 @@ public class ArenaDeObjetos {
                         + "1 - Feminino\n"
                         + "2 - Masculino\n"
                         + "Digite a opção desejada: ");
-                int sexoIntL = LerInt();
+                int sexoIntL = lerInt();
                 boolean sexoL = false;
                 if (sexoIntL == 2) {
                     sexo = true;
@@ -159,13 +159,13 @@ public class ArenaDeObjetos {
                         + "1 - Feminino\n"
                         + "2 - Masculino\n"
                         + "Digite a opção desejada: ");
-                int sexoIntP = LerInt();
+                int sexoIntP = lerInt();
                 boolean sexoP = false;
                 if (sexoIntP == 2) {
                     sexo = true;
                 }
                 p.setSexo(sexoP);
-                vitimas.add(p);//add vitima numa arraylist
+                vitimas.add(p);// add vitima numa arraylist
                 VitimasServicos VS = ServicosFactory.getVitimasServicos();
                 VS.cadastrarVitima(p);
                 break;
