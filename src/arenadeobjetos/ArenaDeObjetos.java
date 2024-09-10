@@ -67,12 +67,12 @@ public class ArenaDeObjetos {
                     System.out.println("Pontos de vida: " + g.getPontosDeVida());
                 }
                 for (Ladrao l : ladraos) {
-                    System.out.println("Nome do Guerreiro: " + l.getNome());
+                    System.out.println("Nome do ladrão: " + l.getNome());
                     System.out.println("Plano de Fuga: " + l.getPlanoDeFuga());
                     System.out.println("Pontos de vida: " + l.getPontosDeVida());
                 }
                 for (Pessoa p : vitimas) {
-                    System.out.println("Nome do Guerreiro: " + p.getNome());
+                    System.out.println("Nome da vitima: " + p.getNome());
                     System.out.println("Pontos de vida: " + p.getPontosDeVida());
                 }
                 System.out.println(ladraos.toString());

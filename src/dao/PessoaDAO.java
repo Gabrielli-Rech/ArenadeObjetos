@@ -11,7 +11,7 @@ public class PessoaDAO {
         try {
             Connection con = Conexao.getConexao();
             // id, nome, olho, cabelo, pele, sexo, armamento, planoDeFuga, pontosDeVida
-            String sql = "Insert into pessoa values" + "null, ?, ?, ?, ?, ?, ?, ?, ?";
+            String sql = "Insert into pessoa values" + "null, ?, ?, ?, ?, ?, null, null, ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, pVO.getNome());
             pst.setString(2, pVO.getOlho());
@@ -22,6 +22,7 @@ public class PessoaDAO {
             pst.setString(7, pVO.getNome());
             pst.setInt(8, pVO.getPontosDeVida());
         } catch (SQLException e) {
+            System.out.println("Erro ao cadastrar pessoa" + e.getMessage());
         }
     }
 }
