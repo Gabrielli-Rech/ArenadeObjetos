@@ -16,4 +16,7 @@ public class VitimasServicos {
     public ArrayList<Pessoa> listaVitimas() {
         return vDAO.getVitmas();
     }
+    public Pessoa buscaVitimaByNome (String nome){
+        return vDAO.getVitimasByNome(nome);
+    }
 }
