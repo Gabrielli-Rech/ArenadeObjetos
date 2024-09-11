@@ -84,6 +84,8 @@ public class ArenaDeObjetos {
                 System.out.println("Vitima Bamco de Dados");
                 VitimasServicos vs = ServicosFactory.getVitimasServicos();
                 System.out.println(vs.listaVitimas().toString());
+                System.out.println(" --Buscar vitima por nome --");
+                System.out.println(vs.buscaVitimaByNome("Gabrielli").toString());
                 break;
             case 3:
                 break;
