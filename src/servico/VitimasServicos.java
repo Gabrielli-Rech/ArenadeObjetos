@@ -1,12 +1,19 @@
 package servico;
 
+import java.util.ArrayList;
+
 import dao.DAOFactory;
 import dao.VitimaDAO;
 import model.Pessoa;
 
 public class VitimasServicos {
+    VitimaDAO vDAO = DAOFactory.geVitimaDAO();
+
     public void cadastrarVitima(Pessoa vVO) {
-        VitimaDAO vDAO = DAOFactory.geVitimaDAO();
         vDAO.cadastrarVitima(vVO);
+    }
+
+    public ArrayList<Pessoa> listaVitimas() {
+        return vDAO.getVitmas();
     }
 }

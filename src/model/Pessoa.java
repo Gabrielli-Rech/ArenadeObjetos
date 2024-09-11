@@ -1,6 +1,7 @@
 package model;
 
 public class Pessoa {
+    private int id;
     private String nome;
     private String cabelo;
     private String olho;
@@ -84,4 +85,13 @@ public class Pessoa {
             return false;
         }
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 }
