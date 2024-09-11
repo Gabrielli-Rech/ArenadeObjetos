@@ -57,6 +57,19 @@ public class VitimaDAO {
         try {
             Connection con = Conexao.getConexao();
             String sql = "select * from pessoa where nome like?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, nome);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Pessoa vitima = new Pessoa();
+                vitima.setId(rs.getInt("id"));
+                vitima.setNome(rs.getString("nome"));
+                vitima.setCabelo(rs.getString("cabelo"));
+                vitima.setOlho(rs.getString("olho"));
+                vitima.setPele(rs.getNString("pele"));
+                vitima.setSexo(rs.getBoolean("sexo"));
+                vitima.setPontosDeVida(rs.getInt("pontosDeVida"));
+            }
         } catch (SQLException e) {
             System.out.println("Erro ao buscar vitima \n" + e.getMessage());
         }
@@ -66,7 +79,8 @@ public class VitimaDAO {
     public void atualizarVitima(Pessoa vVO) {
 
     }
-    public boolean deletarVitimas (String nome){
+
+    public boolean deletarVitimas(String nome) {
         return true;
     }
 }
