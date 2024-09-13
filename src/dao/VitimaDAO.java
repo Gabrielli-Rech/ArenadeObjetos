@@ -61,7 +61,7 @@ public class VitimaDAO {
             pst.setString(1, nome);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                
+
                 v.setId(rs.getInt("id"));
                 v.setNome(rs.getString("nome"));
                 v.setCabelo(rs.getString("cabelo"));
@@ -77,7 +77,16 @@ public class VitimaDAO {
     }
 
     public void atualizarVitima(Pessoa vVO) {
-
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "update pessoa set cabelo = ? where id = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString( 1,vVO.getCabelo());
+            pst.setInt(2, vVO.getId());
+            pst.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Erro ao atualizar a vitima \n" + e.getMessage());
+        }
     }
 
     public boolean deletarVitimas(String nome) {

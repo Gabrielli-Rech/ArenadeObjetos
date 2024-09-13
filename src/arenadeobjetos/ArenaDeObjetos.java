@@ -85,7 +85,12 @@ public class ArenaDeObjetos {
                 VitimasServicos vs = ServicosFactory.getVitimasServicos();
                 System.out.println(vs.listaVitimas().toString());
                 System.out.println(" --Buscar vitima por nome --");
-                System.out.println(vs.buscaVitimaByNome("Gabrielli").toString());
+                System.out.println(vs.buscaVitimaByNome("Ian").toString());
+                Pessoa vUP = vs.buscaVitimaByNome("%Ian%");
+                vUP.setCabelo("Preto");
+                vs.atualizarVitima(vUP);
+                System.out.println("-- Alteração de cabelo --");
+                System.out.println(vs.buscaVitimaByNome("%Ian%").toString());
                 break;
             case 3:
                 break;
