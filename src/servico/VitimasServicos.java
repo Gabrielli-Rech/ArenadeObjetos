@@ -23,4 +23,8 @@ public class VitimasServicos {
     public void atualizarVitima (Pessoa vVO){
         vDAO.atualizarVitima(vVO);
     }
+
+    public boolean deletarVitimas(int id) {
+        return vDAO.deletarVitimas(id);
+    }
 }

@@ -89,19 +89,17 @@ public class VitimaDAO {
         }
     }
 
-    public boolean deletarVitimas(int ID) {
-        boolean delete = false;
+    public boolean deletarVitimas(int id) {
         try {
             Connection con = Conexao.getConexao();
             String sql = "delete from pessoa where id = ?";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, ID);
-            delete = pst.execute();
+            pst.setInt(1, id);
+            return pst.executeUpdate() !=0;
         } catch (Exception e) {
             System.out.println("Erro ao deletar vítima \n" + e.getMessage());
         }
-        return delete;
-
+        return true;
     }
     
 }

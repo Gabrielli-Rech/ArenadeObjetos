@@ -89,8 +89,15 @@ public class ArenaDeObjetos {
                 Pessoa vUP = vs.buscaVitimaByNome("%Ian%");
                 vUP.setCabelo("Preto");
                 vs.atualizarVitima(vUP);
-                System.out.println("-- Alteração de cabelo --");
+                System.out.println("-- Vítima Atualizada --");
                 System.out.println(vs.buscaVitimaByNome("%Ian%").toString());
+                System.out.println("- deletar vitima Ana -");
+                int id = vs.buscaVitimaByNome("%Ana%").getId();
+                if (vs.deletarVitimas(id)){
+                    System.out.println("Vítima deletada");
+                } else {
+                    System.out.println("Erro ao deletar vítima");
+                }
                 break;
             case 3:
                 break;
