@@ -16,7 +16,11 @@ public class VitimasServicos {
     public ArrayList<Pessoa> listaVitimas() {
         return vDAO.getVitmas();
     }
-    public Pessoa buscaVitimaByNome (String nome){
+
+    public Pessoa buscaVitimaByNome(String nome) {
         return vDAO.getVitimasByNome(nome);
+    }
+    public void atualizarVitima (Pessoa vVO){
+        vDAO.atualizarVitima(vVO);
     }
 }
