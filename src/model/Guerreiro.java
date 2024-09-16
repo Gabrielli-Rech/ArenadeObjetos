@@ -28,4 +28,5 @@ public class Guerreiro extends Pessoa {
     public void atacar() {
         this.dano(10);
     }
+
 }

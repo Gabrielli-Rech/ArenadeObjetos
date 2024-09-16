@@ -6,6 +6,8 @@ import java.util.Scanner;
 import model.Guerreiro;
 import model.Ladrao;
 import model.Pessoa;
+import servico.GuerreiroServicos;
+import servico.LadraoServicos;
 import servico.ServicosFactory;
 import servico.VitimasServicos;
 
@@ -82,21 +84,57 @@ public class ArenaDeObjetos {
                 System.out.println("Vitima Ram");
                 System.out.println(vitimas.toString());
                 System.out.println("Vitima Bamco de Dados");
+
                 VitimasServicos vs = ServicosFactory.getVitimasServicos();
                 System.out.println(vs.listaVitimas().toString());
+
                 System.out.println(" --Buscar vitima por nome --");
                 System.out.println(vs.buscaVitimaByNome("Ian").toString());
                 Pessoa vUP = vs.buscaVitimaByNome("%Ian%");
+
                 vUP.setCabelo("Preto");
                 vs.atualizarVitima(vUP);
                 System.out.println("-- Vítima Atualizada --");
                 System.out.println(vs.buscaVitimaByNome("%Ian%").toString());
                 System.out.println("- deletar vitima Ana -");
                 int id = vs.buscaVitimaByNome("%Ana%").getId();
-                if (vs.deletarVitimas(id)){
+                if (vs.deletarVitimas(id)) {
                     System.out.println("Vítima deletada");
                 } else {
                     System.out.println("Erro ao deletar vítima");
+                }
+
+                GuerreiroServicos gs = ServicosFactory.getGuerreiroServicos();
+                System.out.println(gs.listaGuerreiros().toString());
+                System.out.println(" --Buscar guerreiro por nome -Eli-");
+                System.out.println(gs.buscaGuerreirosByNome("Eli").toString());
+                Guerreiro gUP = gs.buscaGuerreirosByNome("%Eli%");
+                gUP.setCabelo("Preto");
+                gs.atualizarGuerreiros(gUP);
+                System.out.println("-- Guerreiro Atualizado --");
+                System.out.println(gs.buscaGuerreirosByNome("%Bob%").toString());
+                System.out.println("- deletar Guerreiro  -");
+                int idg = gs.buscaGuerreirosByNome("%Bob%").getId();
+                if (gs.deletarGuerreiros(idg)) {
+                    System.out.println("Guerreiro deletado");
+                } else {
+                    System.out.println("Erro ao deletar guerreiro");
+                }
+                LadraoServicos ls = ServicosFactory.getLadraoServicos();
+                System.out.println(ls.listaLadrao().toString());
+                System.out.println(" --Buscar ladrao por nome -Luis-");
+                System.out.println(ls.buscaLadraoByNome("Luis").toString());
+                Ladrao lUP = ls.buscaLadraoByNome("%Luis%");
+                lUP.setCabelo("Branco");
+                ls.atualizarLadrao(lUP);
+                System.out.println("-- Ladrão Atualizado --");
+                System.out.println(ls.buscaLadraoByNome("%Wendel%").toString());
+                System.out.println("- Deletar ladrao  -");
+                int idl = ls.buscaLadraoByNome("%Wendel%").getId();
+                if (ls.deletarLadrao(idl)) {
+                    System.out.println("Ladrão deletado");
+                } else {
+                    System.out.println("Erro ao deletar ladrão");
                 }
                 break;
             case 3:
@@ -137,6 +175,8 @@ public class ArenaDeObjetos {
                 System.out.println("Informe o armamento do guerreiro: ");
                 g.setArmamento(ler.nextLine());
                 guerreiros.add(g);
+                GuerreiroServicos GS = ServicosFactory.getGuerreiroServicos();
+                GS.cadastrarGuerreiro(g);
                 break;
             case 2:
                 System.out.println(" < Criar Ladrão >");
@@ -162,6 +202,8 @@ public class ArenaDeObjetos {
                 System.out.println("Informe o plano de fuga do ladrão: ");
                 l.setPlanoDeFuga(ler.nextLine());
                 ladraos.add(l);
+                LadraoServicos LS = ServicosFactory.getLadraoServicos();
+                LS.cadastrarLadrao(l);
                 break;
             case 3:
                 System.out.println("< Criar Vitima >");
