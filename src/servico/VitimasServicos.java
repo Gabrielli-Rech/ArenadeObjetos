@@ -20,7 +20,8 @@ public class VitimasServicos {
     public Pessoa buscaVitimaByNome(String nome) {
         return vDAO.getVitimasByNome(nome);
     }
-    public void atualizarVitima (Pessoa vVO){
+
+    public void atualizarVitima(Pessoa vVO) {
         vDAO.atualizarVitima(vVO);
     }
 
