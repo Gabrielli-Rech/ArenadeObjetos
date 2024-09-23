@@ -231,6 +231,11 @@ public class JFVitima extends javax.swing.JFrame {
         });
 
         jEditarVitima.setText("Editar");
+        jEditarVitima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEditarVitimaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -378,9 +383,15 @@ public class JFVitima extends javax.swing.JFrame {
             vitimasS.deletarVitimas(id);
             JOptionPane.showMessageDialog(this, "Vitima" + nome + " deletada com sucesso");
         }else{
-            JOptionPane.showMessageDialog(this,"ok,delete cancelado pelo usuario com sucesso");
+            JOptionPane.showMessageDialog(this,"Ok,delete cancelado pelo usuario com sucesso");
         }
     }//GEN-LAST:event_jDeletarVitimaActionPerformed
+
+    private void jEditarVitimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEditarVitimaActionPerformed
+        // TODO add your handling code here:
+        jEditarVitima.setEnabled(false);
+        jEditarVitima.setText("Atualizar");
+    }//GEN-LAST:event_jEditarVitimaActionPerformed
 
     /**
      * @param args the command line arguments
