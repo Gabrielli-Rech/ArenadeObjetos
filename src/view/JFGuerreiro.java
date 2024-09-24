@@ -5,17 +5,97 @@
  */
 package view;
 
+import javax.swing.table.DefaultTableModel;
+import model.Pessoa;
+import servico.ServicosFactory;
+import servico.GuerreiroServicos;
+import javax.swing.JOptionPane;
+import model.Guerreiro;
+
 /**
  *
  * @author 182310018
  */
 public class JFGuerreiro extends javax.swing.JFrame {
 
+    int idedit;
+    Guerreiro gVO = null;
     /**
      * Creates new form JFGuerreiro
      */
     public JFGuerreiro() {
         initComponents();
+        addRowToTable();
+        jEditarGuerreiro.setVisible(false);
+        jDeletarGuerreriro.setVisible(false);
+    }
+
+    public void addRowToTable() {
+        DefaultTableModel model = (DefaultTableModel) jTableGuerreiro.getModel();
+        model.getDataVector().removeAllElements();//remove todas as linhas
+        model.fireTableDataChanged();
+        //cria vetor de 5 posições que corresponde as colunas da tabela
+        Object rowData[] = new Object[5];
+        GuerreiroServicos guerreiroS = ServicosFactory.getGuerreiroServicos();
+        //percorer lista e popula vetor e add vetor e tabela
+        for (Pessoa guerreiro : guerreiroS.listaGuerreiros()) {
+            rowData[0] = guerreiro.getId();
+            rowData[1] = guerreiro.getNome();
+            rowData[2] = guerreiro.getOlho();
+            rowData[3] = guerreiro.isSexo() == false ? "Feminino" : "Masculino";
+            rowData[4] = guerreiro.getPontosDeVida();
+            model.addRow(rowData);
+
+        }
+    }
+
+    private void limpaCampo() {
+        jfNomeGuerreiro.setText("");
+        jCabeloGuerreiro.setText("");
+        jOlhoGuerreiro.setText("");
+        jPeleGuerreiro.setText("");
+        jArmamento.setText("");
+        jbSexoGuerreiro.clearSelection();
+        jNomeGuerreiro.requestFocus();
+    }
+
+    private boolean validainputs() {
+        if (jfNomeGuerreiro.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "nome");
+            jfNomeGuerreiro.requestFocus();
+            return false;
+        }
+
+        if (jOlhoGuerreiro.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "olho");
+            jOlhoGuerreiro.requestFocus();
+            return false;
+        }
+
+        if (jCabeloGuerreiro.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "cabelo");
+            jCabeloGuerreiro.requestFocus();
+            return false;
+        }
+
+        if (jPeleGuerreiro.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "pele");
+            jPeleGuerreiro.requestFocus();
+            return false;
+        }
+
+        if (!jbFemininoGuerreiro.isSelected() && !jbMasculinoGuerreiro.isSelected()) {
+            JOptionPane.showMessageDialog(this, "selecionar sexo");
+            return false;
+
+        }
+        if (jArmamento.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Armamento");
+            jArmamento.requestFocus();
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -27,39 +107,115 @@ public class JFGuerreiro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        jbSexoGuerreiro = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
+        jNomeGuerreiro = new javax.swing.JLabel();
         jfNomeGuerreiro = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jCabeloGuerreiro = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jOlhoGuerreiro = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jPeleGuerreiro = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jbFemininoGuerreiro = new javax.swing.JRadioButton();
+        jbMasculinoGuerreiro = new javax.swing.JRadioButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jEditarGuerreiro = new javax.swing.JButton();
+        jSalvarGuerreiro = new javax.swing.JButton();
+        jLimparGuerreiro = new javax.swing.JButton();
+        jDeletarGuerreriro = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableGuerreiro = new javax.swing.JTable();
+        jArmamento = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Guerreiro");
+        jLabel1.setText("Cadastro do Guerreiro");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText("Nome:");
+        jNomeGuerreiro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jNomeGuerreiro.setText("Nome:");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Cabelo:");
 
-        jTextField1.setText("jTextField1");
+        jLabel4.setText("Olho:");
 
-        jLabel4.setText("jLabel4");
+        jLabel5.setText("Pele:");
 
-        jTextField2.setText("jTextField2");
+        jLabel2.setText("Sexo:");
 
-        jLabel5.setText("jLabel5");
+        jbFemininoGuerreiro.setText("Feminino");
 
-        jTextField3.setText("jTextField3");
+        jbMasculinoGuerreiro.setText("Masculino");
+
+        jEditarGuerreiro.setText("Editar");
+
+        jSalvarGuerreiro.setText("Salvar");
+        jSalvarGuerreiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSalvarGuerreiroActionPerformed(evt);
+            }
+        });
+
+        jLimparGuerreiro.setText("Limpar");
+        jLimparGuerreiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jLimparGuerreiroActionPerformed(evt);
+            }
+        });
+
+        jDeletarGuerreriro.setText("Deletar");
+        jDeletarGuerreriro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDeletarGuerreriroActionPerformed(evt);
+            }
+        });
+
+        jTableGuerreiro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nome", "Sexo", "Armamento"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableGuerreiro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableGuerreiroMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableGuerreiro);
+        if (jTableGuerreiro.getColumnModel().getColumnCount() > 0) {
+            jTableGuerreiro.getColumnModel().getColumn(0).setResizable(false);
+            jTableGuerreiro.getColumnModel().getColumn(1).setResizable(false);
+            jTableGuerreiro.getColumnModel().getColumn(2).setResizable(false);
+            jTableGuerreiro.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        jArmamento.setText("Arma:");
+        jArmamento.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,24 +229,59 @@ public class JFGuerreiro extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
+                                .addComponent(jNomeGuerreiro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jfNomeGuerreiro))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jCabeloGuerreiro, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jEditarGuerreiro)
+                                                .addGap(56, 56, 56)
+                                                .addComponent(jSalvarGuerreiro))
+                                            .addComponent(jPeleGuerreiro, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jOlhoGuerreiro))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLimparGuerreiro)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jbFemininoGuerreiro)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jbMasculinoGuerreiro)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jDeletarGuerreriro)
+                                                .addGap(19, 19, 19))))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jArmamento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,22 +292,118 @@ public class JFGuerreiro extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jfNomeGuerreiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jNomeGuerreiro))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCabeloGuerreiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jOlhoGuerreiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 550, Short.MAX_VALUE))
+                    .addComponent(jPeleGuerreiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jbFemininoGuerreiro)
+                    .addComponent(jbMasculinoGuerreiro))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jArmamento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jEditarGuerreiro)
+                    .addComponent(jSalvarGuerreiro)
+                    .addComponent(jLimparGuerreiro)
+                    .addComponent(jDeletarGuerreriro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTableGuerreiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableGuerreiroMouseClicked
+        // TODO add your handling code here:
+        jEditarGuerreiro.setVisible(true);
+        jDeletarGuerreriro.setVisible(true);
+    }//GEN-LAST:event_jTableGuerreiroMouseClicked
+
+    private void jDeletarGuerreriroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeletarGuerreriroActionPerformed
+        // TODO add your handling code here:
+        int linha = jTableGuerreiro.getSelectedRow();
+        int id = (int) jTableGuerreiro.getValueAt(linha, 0);
+        String nome = (String) jTableGuerreiro.getValueAt(linha, 1);
+        Object[] btnMSG = {"Sim", "Não"};
+        int resp = JOptionPane.showOptionDialog(this, "Deseja mesmo deletar?" + nome, ".:Deletar:.", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, btnMSG, btnMSG);
+        if (resp == 0) {
+            GuerreiroServicos guerreiroS = ServicosFactory.getGuerreiroServicos();
+             guerreiroS.deletarGuerreiros(id);
+            JOptionPane.showMessageDialog(this, "Guerreiro " + nome + " deletado com sucesso");
+        } else {
+            JOptionPane.showMessageDialog(this, "Ok, a opção deletar foi cancelada pelo usuario com sucesso");
+        }
+    }//GEN-LAST:event_jDeletarGuerreriroActionPerformed
+
+    private void jLimparGuerreiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLimparGuerreiroActionPerformed
+        // TODO add your handling code here:
+        limpaCampo();
+    }//GEN-LAST:event_jLimparGuerreiroActionPerformed
+
+    private void jSalvarGuerreiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalvarGuerreiroActionPerformed
+        // TODO add your handling code here:
+       
+        if (jSalvarGuerreiro.getText().equals("salvar")) {
+            if (validainputs()) {
+                Pessoa v = new Pessoa();
+                v.setNome(jfNomeGuerreiro.getText());
+                v.setOlho(jOlhoGuerreiro.getText());
+                v.setCabelo(jCabeloGuerreiro.getText());
+                v.setPele(jPeleGuerreiro.getText());
+                v.setSexo(jbFemininoGuerreiro.isSelected());
+
+                if (jbFemininoGuerreiro.isSelected() || jbMasculinoGuerreiro.isSelected()) {
+                    v.setSexo(!jbFemininoGuerreiro.isSelected());
+                }
+                GuerreiroServicos guerreiroS = ServicosFactory.getGuerreiroServicos();
+                guerreiroS.cadastrarGuerreiro(gVO);
+                addRowToTable();
+                limpaCampo();
+                jbDefaut();
+            }//GEN-LAST:event_jbSalvarVitimaActionPerformed
+        } else {
+            Pessoa vit = new Pessoa();
+            vit.setId(idedit);
+            vit.setNome(jfNomeGuerreiro.getText());
+            vit.setOlho(jOlhoGuerreiro.getText());
+            vit.setCabelo(jCabeloGuerreiro.getText());
+            vit.setPele(jPeleGuerreiro.getText());
+            GuerreiroServicos guerreiroS = ServicosFactory.getGuerreiroServicos();
+            guerreiroS.atualizarGuerreiros(gVO);
+            addRowToTable();
+            jbDefaut();
+            JOptionPane.showMessageDialog(this, "Vítima atualizada com sucesso");
+
+        }
+
+    }//GEN-LAST:event_jSalvarGuerreiroActionPerformed
+ 
+
+    
+
+    private void jbDefaut() {
+        jSalvarGuerreiro.setText("Atualizar");
+        jbMasculinoGuerreiro.setVisible(true);
+        jbFemininoGuerreiro.setVisible(true);
+        jLimparGuerreiro.setEnabled(true);
+        //jbSexoGuerreiro.setVisible(true);
+        jDeletarGuerreriro.setVisible(false);
+        jDeletarGuerreriro.setText("Cancelar");
+        jEditarGuerreiro.setVisible(false);
+    }
 
     /**
      * @param args the command line arguments
@@ -154,16 +441,28 @@ public class JFGuerreiro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jArmamento;
+    private javax.swing.JTextField jCabeloGuerreiro;
+    private javax.swing.JButton jDeletarGuerreriro;
+    private javax.swing.JButton jEditarGuerreiro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton jLimparGuerreiro;
+    private javax.swing.JLabel jNomeGuerreiro;
+    private javax.swing.JTextField jOlhoGuerreiro;
+    private javax.swing.JTextField jPeleGuerreiro;
+    private javax.swing.JButton jSalvarGuerreiro;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTable jTableGuerreiro;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JRadioButton jbFemininoGuerreiro;
+    private javax.swing.JRadioButton jbMasculinoGuerreiro;
+    private javax.swing.ButtonGroup jbSexoGuerreiro;
     private javax.swing.JTextField jfNomeGuerreiro;
     // End of variables declaration//GEN-END:variables
 }
