@@ -5,7 +5,6 @@
  */
 package view;
 
-import javax.print.DocFlavor;
 import javax.swing.table.DefaultTableModel;
 import model.Pessoa;
 import servico.ServicosFactory;
@@ -17,6 +16,8 @@ import javax.swing.JOptionPane;
  * @author 182310018
  */
 public class JFVitima extends javax.swing.JFrame {
+
+    int idedit;
 
     /**
      * Creates new form JFVitima
@@ -113,7 +114,7 @@ public class JFVitima extends javax.swing.JFrame {
         jtfPeleVitima = new javax.swing.JTextField();
         jtfFemininoVitima = new javax.swing.JRadioButton();
         jtfMasculinoVitima = new javax.swing.JRadioButton();
-        jLabel6 = new javax.swing.JLabel();
+        jSexoVitima = new javax.swing.JLabel();
         jbSalvarVitima = new javax.swing.JButton();
         jbLimparVitima = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -125,6 +126,7 @@ public class JFVitima extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setForeground(new java.awt.Color(0, 102, 102));
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -169,8 +171,8 @@ public class JFVitima extends javax.swing.JFrame {
         jtfMasculinoVitima.setForeground(new java.awt.Color(255, 255, 255));
         jtfMasculinoVitima.setText("Masculino");
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Sexo:");
+        jSexoVitima.setForeground(new java.awt.Color(255, 255, 255));
+        jSexoVitima.setText("Sexo:");
 
         jbSalvarVitima.setText("Salvar");
         jbSalvarVitima.addActionListener(new java.awt.event.ActionListener() {
@@ -274,7 +276,7 @@ public class JFVitima extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
+                            .addComponent(jSexoVitima))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -310,7 +312,7 @@ public class JFVitima extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfPeleVitima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6)
+                    .addComponent(jSexoVitima)
                     .addComponent(jtfFemininoVitima)
                     .addComponent(jtfMasculinoVitima))
                 .addGap(75, 75, 75)
@@ -346,20 +348,51 @@ public class JFVitima extends javax.swing.JFrame {
 
     private void jbSalvarVitimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarVitimaActionPerformed
         // TODO add your handling code here:
-        Pessoa v = new Pessoa();
-        v.setNome(jtfNomeVitima.getText());
-        v.setOlho(jtfOlhoVitima.getText());
-        v.setCabelo(jtfCabeloVitima.getText());
-        v.setPele(jtfPeleVitima.getText());
-        v.setSexo(jtfFemininoVitima.isSelected());
-        if (jtfFemininoVitima.isSelected() || jtfMasculinoVitima.isSelected()) {
-            v.setSexo(!jtfFemininoVitima.isSelected());
-        }
-        VitimasServicos vitimasS = ServicosFactory.getVitimasServicos();
-        vitimasS.cadastrarVitima(v);
-        addRowToTable();
-        limpaCampo();
+        if (jbSalvarVitima.getText().equals("salvar")) {
+            if (validainputs()) {
+                Pessoa v = new Pessoa();
+                v.setNome(jtfNomeVitima.getText());
+                v.setOlho(jtfOlhoVitima.getText());
+                v.setCabelo(jtfCabeloVitima.getText());
+                v.setPele(jtfPeleVitima.getText());
+                v.setSexo(jtfFemininoVitima.isSelected());
+
+                if (jtfFemininoVitima.isSelected() || jtfMasculinoVitima.isSelected()) {
+                    v.setSexo(!jtfFemininoVitima.isSelected());
+                }
+                VitimasServicos vitimasS = ServicosFactory.getVitimasServicos();
+                vitimasS.cadastrarVitima(v);
+                addRowToTable();
+                limpaCampo();
+                jbDefaut();
     }//GEN-LAST:event_jbSalvarVitimaActionPerformed
+        } else {
+            Pessoa vit = new Pessoa();
+            vit.setId(idedit);
+            vit.setNome(jtfNomeVitima.getText());
+            vit.setOlho(jtfOlhoVitima.getText());
+            vit.setCabelo(jtfCabeloVitima.getText());
+            vit.setPele(jtfPeleVitima.getText());
+            VitimasServicos vitimaS = ServicosFactory.getVitimasServicos();
+            vitimaS.atualizarVitima(vit);
+            addRowToTable();
+            jbDefaut();
+            JOptionPane.showMessageDialog(this, "Vítima atualizada com sucesso");
+
+        }
+
+    }
+
+    private void jbDefaut() {
+        jbSalvarVitima.setText("Atualizar");
+        jtfMasculinoVitima.setVisible(true);
+        jtfFemininoVitima.setVisible(true);
+        jbLimparVitima.setEnabled(true);
+        jSexoVitima.setVisible(true);
+        jDeletarVitima.setVisible(false);
+        jDeletarVitima.setText("Cancelar");
+        jEditarVitima.setVisible(false);
+    }
 
     private void jtfCabeloVitimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCabeloVitimaActionPerformed
         // TODO add your handling code here:
@@ -378,12 +411,12 @@ public class JFVitima extends javax.swing.JFrame {
         String nome = (String) jTableVitimas.getValueAt(linha, 1);
         Object[] btnMSG = {"Sim", "Não"};
         int resp = JOptionPane.showOptionDialog(this, "Deseja mesmo deletar?" + nome, ".:Deletar:.", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, btnMSG, btnMSG);
-        if (resp == 0){
+        if (resp == 0) {
             VitimasServicos vitimasS = ServicosFactory.getVitimasServicos();
             vitimasS.deletarVitimas(id);
-            JOptionPane.showMessageDialog(this, "Vitima" + nome + " deletada com sucesso");
-        }else{
-            JOptionPane.showMessageDialog(this,"Ok,delete cancelado pelo usuario com sucesso");
+            JOptionPane.showMessageDialog(this, "Vitima " + nome + " deletada com sucesso");
+        } else {
+            JOptionPane.showMessageDialog(this, "Ok, a opção deletar foi cancelada pelo usuario com sucesso");
         }
     }//GEN-LAST:event_jDeletarVitimaActionPerformed
 
@@ -391,6 +424,21 @@ public class JFVitima extends javax.swing.JFrame {
         // TODO add your handling code here:
         jEditarVitima.setEnabled(false);
         jEditarVitima.setText("Atualizar");
+        jtfFemininoVitima.setEnabled(false);
+        jtfMasculinoVitima.setEnabled(false);
+        jSexoVitima.setVisible(false);
+        jDeletarVitima.setText("Deletar");
+        // Buscar vitima e carregar nos campos
+        int linha = jTableVitimas.getSelectedRow();
+        idedit = (int) jTableVitimas.getValueAt(linha, 0);
+        VitimasServicos vitimaS = ServicosFactory.getVitimasServicos();
+        Pessoa vitima = vitimaS.getVitimaById(idedit);
+        jtfNomeVitima.setText(vitima.getNome());
+        jtfCabeloVitima.setText(vitima.getCabelo());
+        jtfOlhoVitima.setText(vitima.getOlho());
+        jtfPeleVitima.setText(vitima.getPele());
+        jtfFemininoVitima.setVisible(false);
+        jtfMasculinoVitima.setVisible(false);
     }//GEN-LAST:event_jEditarVitimaActionPerformed
 
     /**
@@ -410,13 +458,17 @@ public class JFVitima extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFVitima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFVitima.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFVitima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFVitima.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFVitima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFVitima.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFVitima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFVitima.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -437,11 +489,11 @@ public class JFVitima extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel jSexoVitima;
     private javax.swing.JTable jTableVitimas;
     private javax.swing.JButton jbLimparVitima;
     private javax.swing.JButton jbSalvarVitima;

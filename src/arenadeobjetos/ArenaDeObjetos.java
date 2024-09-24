@@ -10,8 +10,10 @@ import servico.GuerreiroServicos;
 import servico.LadraoServicos;
 import servico.ServicosFactory;
 import servico.VitimasServicos;
+import view.Principal;
 
 public class ArenaDeObjetos {
+
     static Scanner ler = new Scanner(System.in);
     static int opMP;
     static ArrayList<Guerreiro> guerreiros = new ArrayList<>();
@@ -31,11 +33,14 @@ public class ArenaDeObjetos {
     }
 
     public static void main(String[] args) {
-        System.out.println("< ARENA DE OBJETOS >");
-        do {
-            menuP();
-            subMenuP(opMP);
-        } while (opMP != 0);
+//        System.out.println("< ARENA DE OBJETOS >");
+//        do {
+//            menuP();
+//            subMenuP(opMP);
+//        } while (opMP != 0);
+
+        Principal janelaP = new Principal();
+        janelaP.setVisible(true);
     }
 
     public static void menuP() {// menu principal
