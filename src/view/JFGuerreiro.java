@@ -375,7 +375,7 @@ public class JFGuerreiro extends javax.swing.JFrame {
 
     private void jbSalvarGuerreiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarGuerreiroActionPerformed
         // TODO add your handling code here:
-        if (jbSalvarGuerreiro.getText().equals("salvar")) {
+        if (jbSalvarGuerreiro.getText().equalsIgnoreCase("salvar")) {
             if (validainputs()) {
                 Guerreiro g = new Guerreiro();
                 g.setNome(jtfNomeGuerreiro.getText());
@@ -444,6 +444,7 @@ public class JFGuerreiro extends javax.swing.JFrame {
             GuerreiroServicos guerreiroS = ServicosFactory.getGuerreiroServicos();
             guerreiroS.deletarGuerreiros(id);
             JOptionPane.showMessageDialog(this, "Guerreiro " + nome + " deletada com sucesso");
+            addRowToTable();
         } else {
             JOptionPane.showMessageDialog(this, "Ok, a opção deletar foi cancelada pelo usuario com sucesso");
         }
