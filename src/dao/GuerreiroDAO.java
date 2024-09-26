@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import conexao.Conexao;
 import model.Guerreiro;
+import model.Pessoa;
 
 public class GuerreiroDAO {
     public void cadastrarGuerreiro(Guerreiro gVO) {
@@ -34,15 +35,17 @@ public class GuerreiroDAO {
         ArrayList<Guerreiro> guerreiros = new ArrayList<>();
         try {
             Connection con = Conexao.getConexao();
-            String sql = "select * from pessoa " + "where planoDeFuga is null ";
+            String sql = "select * from pessoa " + "where armamento is not null ";
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Guerreiro guerreiro = new Guerreiro();
+                guerreiro.setId(rs.getInt("id"));
                 guerreiro.setNome(rs.getString("nome"));
                 guerreiro.setCabelo(rs.getString("cabelo"));
                 guerreiro.setOlho(rs.getString("olho"));
-                guerreiro.setPele(rs.getNString("pele"));
+                guerreiro.setArmamento(rs.getString("armamento"));
+                guerreiro.setPele(rs.getString("pele"));
                 guerreiro.setSexo(rs.getBoolean("sexo"));
                 guerreiro.setPontosDeVida(rs.getInt("pontosDeVida"));
                 guerreiros.add(guerreiro);
@@ -67,10 +70,33 @@ public class GuerreiroDAO {
                 g.setNome(rS.getString("nome"));
                 g.setCabelo(rS.getString("cabelo"));
                 g.setOlho(rS.getString("olho"));
-                g.setPele(rS.getNString("pele"));
+                g.setPele(rS.getString("pele"));
                 g.setSexo(rS.getBoolean("sexo"));
                 g.setArmamento(rS.getString("Armamento"));
                 g.setPontosDeVida(rS.getInt("pontosDeVida"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar guerreiro \n" + e.getMessage());
+        }
+        return g;
+    }
+    public Guerreiro getGuerreiroById(int id) {
+        Guerreiro g = new Guerreiro();
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "select * from pessoa where id = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                g.setId(rs.getInt("id"));
+                g.setNome(rs.getString("nome"));
+                g.setCabelo(rs.getString("cabelo"));
+                g.setOlho(rs.getString("olho"));
+                g.setPele(rs.getString("pele"));
+                g.setSexo(rs.getBoolean("sexo"));
+                g.setPontosDeVida(rs.getInt("pontosDeVida"));
+                g.setArmamento(rs.getString("armamento"));
             }
         } catch (SQLException e) {
             System.out.println("Erro ao buscar guerreiro \n" + e.getMessage());

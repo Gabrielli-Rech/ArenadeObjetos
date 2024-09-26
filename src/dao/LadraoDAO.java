@@ -34,7 +34,7 @@ public class LadraoDAO {
         ArrayList<Ladrao> ladraos = new ArrayList<>();
         try {
             Connection con = Conexao.getConexao();
-            String sql = "select * from pessoa " + "where armamento is null ";
+            String sql = "select * from pessoa " + "where planoDeFuga is not null ";
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -44,6 +44,7 @@ public class LadraoDAO {
                 ladrao.setOlho(rs.getString("olho"));
                 ladrao.setPele(rs.getNString("pele"));
                 ladrao.setSexo(rs.getBoolean("sexo"));
+                ladrao.setPlanoDeFuga(rs.getString("planoDeFuga"));
                 ladrao.setPontosDeVida(rs.getInt("pontosDeVida"));
 
             }
@@ -76,6 +77,29 @@ public class LadraoDAO {
             System.out.println("Erro ao buscar ladrao \n" + e.getMessage());
         }
         return l;
+    }
+    public Guerreiro getGuerreiroById(int id) {
+        Guerreiro g = new Guerreiro();
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "select * from pessoa where id = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                g.setId(rs.getInt("id"));
+                g.setNome(rs.getString("nome"));
+                g.setCabelo(rs.getString("cabelo"));
+                g.setOlho(rs.getString("olho"));
+                g.setPele(rs.getString("pele"));
+                g.setSexo(rs.getBoolean("sexo"));
+                g.setPontosDeVida(rs.getInt("pontosDeVida"));
+                g.setArmamento(rs.getString("armamento"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar guerreiro \n" + e.getMessage());
+        }
+        return g;
     }
 
     public void atualizarLadrao(Ladrao lVO) {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import dao.DAOFactory;
 import dao.GuerreiroDAO;
 import model.Guerreiro;
+import model.Pessoa;
 
 public class GuerreiroServicos {
 
@@ -28,5 +29,8 @@ public class GuerreiroServicos {
 
     public boolean deletarGuerreiros(int id) {
         return gDAO.deletarGuerreiros(id);
+    }
+        public Pessoa getGuerreiroById(int id) {
+        return gDAO.getGuerreiroById(id);
     }
 }

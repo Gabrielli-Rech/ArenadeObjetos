@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import dao.DAOFactory;
 import dao.LadraoDAO;
 import model.Ladrao;
+import model.Pessoa;
 
 public class LadraoServicos {
     LadraoDAO lDAO = DAOFactory.ladraoDAO();
@@ -27,5 +28,8 @@ public class LadraoServicos {
 
     public boolean deletarLadrao(int id) {
         return lDAO.deletarLadrao(id);
+    }
+        public Pessoa getLadraoById(int id) {
+        return lDAO.getladraoById(id);
     }
 }

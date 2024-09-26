@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="bgSexoGuerreiro">
+    <Component class="javax.swing.ButtonGroup" name="bgSexoLadrao">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -77,48 +77,48 @@
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jtfNomeGuerreiro" min="-2" pref="656" max="-2" attributes="0"/>
+                          <Component id="jtfNomeLadrao" min="-2" pref="656" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Component id="jSeparator1" pref="1" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jEditarGuerreiro" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jEditarLadrao" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jbSalvarGuerreiro" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jbSalvarLadrao" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jtfCabeloGuerreiro" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jtfPeleGuerreiro" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jtfCabeloLadrao" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jtfPeleLadrao" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel4" alignment="0" min="-2" pref="51" max="-2" attributes="0"/>
-                              <Component id="jSexoGuerreiro" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSexoLadrao" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jtfFemininoGuerreiro" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jtfFemininoLadrao" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                          <Component id="jtfMasculinoGuerreiro" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jtfMasculinoLadrao" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jtfOlhoGuerreiro" min="-2" pref="321" max="-2" attributes="0"/>
+                                      <Component id="jtfOlhoLadrao" min="-2" pref="321" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jbLimparGuerreiro" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jbLimparLadrao" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jDeletarGuerreiro" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jDeletarLadrao" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jtfArmamentoGuerreiro" min="-2" pref="656" max="-2" attributes="0"/>
+                          <Component id="jtfPlanodeFugaLadrao" min="-2" pref="656" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -134,40 +134,40 @@
                       <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" pref="25" max="32767" attributes="0"/>
-                          <Component id="jtfNomeGuerreiro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtfNomeLadrao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="19" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jtfOlhoGuerreiro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfCabeloGuerreiro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfOlhoLadrao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfCabeloLadrao" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jtfPeleGuerreiro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfPeleLadrao" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jSexoGuerreiro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfFemininoGuerreiro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfMasculinoGuerreiro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jSexoLadrao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfFemininoLadrao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfMasculinoLadrao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jtfArmamentoGuerreiro" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfPlanodeFugaLadrao" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jbSalvarGuerreiro" min="-2" max="-2" attributes="0"/>
-                      <Component id="jDeletarGuerreiro" min="-2" max="-2" attributes="0"/>
-                      <Component id="jEditarGuerreiro" min="-2" max="-2" attributes="0"/>
-                      <Component id="jbLimparGuerreiro" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbSalvarLadrao" min="-2" max="-2" attributes="0"/>
+                      <Component id="jDeletarLadrao" min="-2" max="-2" attributes="0"/>
+                      <Component id="jEditarLadrao" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbLimparLadrao" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="513" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="528" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -182,7 +182,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Cadastro de Guerreiro"/>
+            <Property name="text" type="java.lang.String" value="Cadastro de Ladr&#xe3;o"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -198,7 +198,7 @@
             <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfArmamentoGuerreiro">
+        <Component class="javax.swing.JTextField" name="jtfPlanodeFugaLadrao">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -216,14 +216,14 @@
             <Property name="text" type="java.lang.String" value="Cabelo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfCabeloGuerreiro">
+        <Component class="javax.swing.JTextField" name="jtfCabeloLadrao">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfCabeloGuerreiroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfCabeloLadraoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -237,7 +237,7 @@
             <Property name="text" type="java.lang.String" value="Olho:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfOlhoGuerreiro">
+        <Component class="javax.swing.JTextField" name="jtfOlhoLadrao">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -255,17 +255,17 @@
             <Property name="text" type="java.lang.String" value="Pele:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfPeleGuerreiro">
+        <Component class="javax.swing.JTextField" name="jtfPeleLadrao">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jtfFemininoGuerreiro">
+        <Component class="javax.swing.JRadioButton" name="jtfFemininoLadrao">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="bgSexoGuerreiro"/>
+              <ComponentRef name="bgSexoLadrao"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -273,13 +273,13 @@
             <Property name="text" type="java.lang.String" value="Feminino"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jtfMasculinoGuerreiro">
+        <Component class="javax.swing.JRadioButton" name="jtfMasculinoLadrao">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="bgSexoGuerreiro"/>
+              <ComponentRef name="bgSexoLadrao"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -287,7 +287,7 @@
             <Property name="text" type="java.lang.String" value="Masculino"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jSexoGuerreiro">
+        <Component class="javax.swing.JLabel" name="jSexoLadrao">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -295,20 +295,20 @@
             <Property name="text" type="java.lang.String" value="Sexo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jbSalvarGuerreiro">
+        <Component class="javax.swing.JButton" name="jbSalvarLadrao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Salvar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSalvarGuerreiroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSalvarLadraoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jbLimparGuerreiro">
+        <Component class="javax.swing.JButton" name="jbLimparLadrao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbLimparGuerreiroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbLimparLadraoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator2">
@@ -320,7 +320,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTableGuerreiro">
+            <Component class="javax.swing.JTable" name="jTableLadrao">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="6" rowCount="0">
@@ -329,7 +329,7 @@
                     <Column editable="false" title="Olho" type="java.lang.String"/>
                     <Column editable="false" title="Sexo" type="java.lang.String"/>
                     <Column editable="false" title="HP" type="java.lang.Integer"/>
-                    <Column editable="false" title="Armamento" type="java.lang.String"/>
+                    <Column editable="false" title="Plano de fuga" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -371,28 +371,28 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableGuerreiroMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableLadraoMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jDeletarGuerreiro">
+        <Component class="javax.swing.JButton" name="jDeletarLadrao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Deletar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jDeletarGuerreiroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jDeletarLadraoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jEditarGuerreiro">
+        <Component class="javax.swing.JButton" name="jEditarLadrao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jEditarGuerreiroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jEditarLadraoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfNomeGuerreiro">
+        <Component class="javax.swing.JTextField" name="jtfNomeLadrao">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -407,7 +407,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Arma:"/>
+            <Property name="text" type="java.lang.String" value="Plano: "/>
           </Properties>
         </Component>
       </SubComponents>
