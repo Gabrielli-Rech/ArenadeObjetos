@@ -30,6 +30,6 @@ public class LadraoServicos {
         return lDAO.deletarLadrao(id);
     }
         public Pessoa getLadraoById(int id) {
-        return lDAO.getladraoById(id);
+        return lDAO.getLadraoById(id);
     }
 }
