@@ -78,8 +78,8 @@ public class LadraoDAO {
         }
         return l;
     }
-    public Guerreiro getGuerreiroById(int id) {
-        Guerreiro g = new Guerreiro();
+    public Ladrao getLadraoById(int id) {
+        Ladrao l = new Ladrao();
         try {
             Connection con = Conexao.getConexao();
             String sql = "select * from pessoa where id = ?";
@@ -87,19 +87,19 @@ public class LadraoDAO {
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                g.setId(rs.getInt("id"));
-                g.setNome(rs.getString("nome"));
-                g.setCabelo(rs.getString("cabelo"));
-                g.setOlho(rs.getString("olho"));
-                g.setPele(rs.getString("pele"));
-                g.setSexo(rs.getBoolean("sexo"));
-                g.setPontosDeVida(rs.getInt("pontosDeVida"));
-                g.setArmamento(rs.getString("armamento"));
+                l.setId(rs.getInt("id"));
+                l.setNome(rs.getString("nome"));
+                l.setCabelo(rs.getString("cabelo"));
+                l.setOlho(rs.getString("olho"));
+                l.setPele(rs.getString("pele"));
+                l.setSexo(rs.getBoolean("sexo"));
+                l.setPontosDeVida(rs.getInt("pontosDeVida"));
+                l.setPlanoDeFuga(rs.getString("planoDeFuga"));
             }
         } catch (SQLException e) {
-            System.out.println("Erro ao buscar guerreiro \n" + e.getMessage());
+            System.out.println("Erro ao buscar ladrão \n" + e.getMessage());
         }
-        return g;
+        return l;
     }
 
     public void atualizarLadrao(Ladrao lVO) {

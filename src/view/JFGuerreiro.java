@@ -57,13 +57,13 @@ public class JFGuerreiro extends javax.swing.JFrame {
         jtfPeleGuerreiro.setText("");
         jtfArmamentoGuerreiro.setText("");
         bgSexoGuerreiro.clearSelection();
-        jtfArmamentoGuerreiro.requestFocus();
+        jtfNomeGuerreiro.requestFocus();
     }
 
     private boolean validainputs() {
-        if (jtfArmamentoGuerreiro.getText().equals("")) {
+        if (jtfNomeGuerreiro.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "nome");
-            jtfArmamentoGuerreiro.requestFocus();
+            jtfNomeGuerreiro.requestFocus();
             return false;
         }
 
