@@ -92,7 +92,7 @@ public class JFLadrao extends javax.swing.JFrame {
         }
 
         if (jtfPlanodeFugaLadrao.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "armamento");
+            JOptionPane.showMessageDialog(this, "planoDeFuga");
             jtfPlanodeFugaLadrao.requestFocus();
             return false;
         }
@@ -443,9 +443,9 @@ public class JFLadrao extends javax.swing.JFrame {
         if (resp == 0) {
             LadraoServicos ladraoS = ServicosFactory.getLadraoServicos();
             ladraoS.deletarLadrao(id);
-            JOptionPane.showMessageDialog(this, "Ladrão " + nome + " deletada com sucesso");
+            JOptionPane.showMessageDialog(this, "Ladrão " + nome + " deletado com sucesso");
         } else {
-            JOptionPane.showMessageDialog(this, "Ok, a opção deletar foi cancelada pelo usuario com sucesso");
+            JOptionPane.showMessageDialog(this, "Ok, a opção deletar foi cancelada pelo usuário com sucesso");
         }
     }//GEN-LAST:event_jDeletarLadraoActionPerformed
 
