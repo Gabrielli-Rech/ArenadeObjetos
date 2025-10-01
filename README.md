@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="logoArena.png" alt="Logo do Projeto" width="200">
+</p>
 
 
 # 🏟️ ArenaDeObjetos
