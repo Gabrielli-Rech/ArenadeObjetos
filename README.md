@@ -22,16 +22,16 @@ Serve como laboratório de Programação Orientada a Objetos, lógica e domínio
 
 ## 🏗️ Estrutura do Projeto
 
-ArenadeObjetos/
-├── src/
-│ └── (código-fonte Java)
-├── bin/
-│ └── (arquivos compilados)
-├── nbproject/
-│ └── configurações de projeto (NetBeans)
-├── build.xml
-├── manifest.mf
-└── .gitignore
+ArenadeObjetos/<br>
+├── src/<br>
+│ └── (código-fonte Java)<br>
+├── bin/<br>
+│ └── (arquivos compilados)<br>
+├── nbproject/<br>
+│ └── configurações de projeto (NetBeans)<br>
+├── build.xml<br>
+├── manifest.mf<br>
+└── .gitignore<br>
 
 
 - **src/** — Classes e pacotes do jogo  
@@ -59,14 +59,13 @@ ArenadeObjetos/
    git clone https://github.com/Gabrielli-Rech/ArenadeObjetos.git
 
 2. Navegue até a pasta do projeto:
-cd ArenadeObjetos
+  cd ArenadeObjetos
 
 3. Compile com o Ant (se tiver instalado):
-ant
+  ant
 
 4. Execute via terminal (apontando para a classe principal):
-
-java -cp bin caminho.da.classe.Principal   
+  java -cp bin caminho.da.classe.Principal   
 
 🧩 Possíveis melhorias / Roadmap
 
