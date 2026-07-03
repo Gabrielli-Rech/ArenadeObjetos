@@ -2,7 +2,6 @@ package arenadeobjetos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import model.Guerreiro;
 import model.Ladrao;
 import model.Pessoa;
@@ -25,7 +24,7 @@ public class ArenaDeObjetos {
         int num = 99;
         try {// o que pode dar erro
             num = ler.nextInt();
-        } catch (Exception e) {// tratar o erro
+        } catch (Exception e) {
             System.out.print("Tente Novamente: ");
             lerInt();
         }
